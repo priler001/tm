@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
 body {
   font-family: 'Ubuntu', sans-serif;
@@ -23,16 +24,8 @@ h1, h2, h3, h4, h5 {
   margin: 0 !important;
 }
 
-.form-control {
-  padding: 10px 20px;
-}
-
 a {
   text-decoration: none;
-}
-
-.text-center {
-  text-align: center;
 }
 
 .btn {
@@ -42,7 +35,8 @@ a {
   cursor: pointer;
 }
 
-#header .container nav {
+#header nav .container {
+  text-align: center;
   margin-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -55,23 +49,23 @@ a {
           align-items: center;
 }
 
-#header .container nav .navbar-logo {
+#header nav .container .navbar-logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-#header .container nav ul {
+#header nav .container ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-#header .container nav ul li {
+#header nav .container ul li {
   padding: 0px 15px;
 }
 
-#header .container nav ul li a {
+#header nav .container ul li a {
   position: relative;
   color: #000;
   -webkit-transition: .1s;
@@ -82,7 +76,7 @@ a {
   transition: .5s;
 }
 
-#header .container nav ul li a::before {
+#header nav .container ul li a::before {
   content: '';
   bottom: 0;
   left: 0;
@@ -96,13 +90,14 @@ a {
           transform: scaleX(0);
 }
 
-#header .container nav ul li a:hover:before {
+#header nav .container ul li a:hover:before {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
 }
 
-#header .container nav .btn {
+#header nav .container .btn {
   width: 20%;
+  height: 20%;
   background-color: #fff;
   border: 3px solid black;
   color: black;
@@ -110,18 +105,19 @@ a {
   transition: .3s;
   font-size: 15px;
   text-transform: uppercase;
+  padding: 10px 15px;
 }
 
-#header .container nav .btn p {
+#header nav .container .btn p {
   font-weight: 900 !important;
 }
 
-#header .container nav .btn:hover {
+#header nav .container .btn:hover {
   color: #fff;
   background-color: #000;
 }
 
-#header .container nav .lang {
+#header nav .container .lang {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -133,7 +129,7 @@ a {
   cursor: pointer;
 }
 
-#header .container nav .lang .lang_opt {
+#header nav .container .lang .lang_opt {
   max-height: 40px !important;
   padding: 10px 20px;
   -webkit-transition: .3s;
@@ -141,7 +137,158 @@ a {
   background-color: #e7e3e3;
 }
 
-#header .container nav .lang .active {
+#header nav .container .lang .active {
+  z-index: 1000;
+  width: 80px !important;
   background-color: #d8d4d4;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    width: 600px;
+    margin: 0 auto;
+  }
+  .menu-burger__header {
+    position: relative;
+    /* задаем относительное позиционирование */
+    width: 40px;
+    /* определяем размеры блока */
+    height: 35px;
+    margin-left: 10px;
+  }
+  .menu-burger__header span, .menu-burger__header:after, .menu-burger__header:before {
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    background: #000;
+    margin: 0 auto;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
+  .menu-burger__header span {
+    top: 16px;
+  }
+  .menu-burger__header:after, .menu-burger__header:before {
+    content: '';
+  }
+  .menu-burger__header:after {
+    bottom: 5px;
+  }
+  .menu-burger__header:before {
+    top: 5px;
+  }
+  .menu-burger__header.open-menu span {
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  .menu-burger__header.open-menu:before {
+    -webkit-transform: rotate(38deg);
+            transform: rotate(38deg);
+    top: 16px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  .menu-burger__header.open-menu:after {
+    -webkit-transform: rotate(-38deg);
+            transform: rotate(-38deg);
+    bottom: 16px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  .navbar .container {
+    display: block !important;
+  }
+  .navbar .container .navbar-brand {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+  .navbar .container .navbar-brand .menu-burger__header {
+    margin-left: 71%;
+  }
+  .navbar .container .navbar-ul {
+    right: -100% !important;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    display: block !important;
+  }
+  .navbar .container .navbar-ul li {
+    padding: 0px 15px;
+  }
+  .navbar .container .navbar-ul li a {
+    position: relative;
+    color: #000;
+    -webkit-transition: .1s;
+    transition: .1s;
+    padding: 10px 0px;
+    -webkit-transition: .5s;
+    transition: .5s;
+    text-align: right;
+  }
+  .navbar .container .navbar-ul li a::before {
+    content: '';
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+  }
+  .navbar .container .navbar-ul li a:hover:before {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+  .navbar .container .navbar-ul.open-menu {
+    right: 0 !important;
+  }
+  .navbar .container .btn {
+    width: 50% !important;
+    background-color: #fff;
+    border: 3px solid black;
+    color: black;
+    -webkit-transition: .3s;
+    transition: .3s;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    margin-left: 46%;
+  }
+  .navbar .container .btn p {
+    font-weight: 900 !important;
+  }
+  .navbar .container .btn:hover {
+    color: #fff;
+    background-color: #000;
+  }
+  .navbar .container .lang {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    color: #000 !important;
+    cursor: pointer;
+    margin-left: 75%;
+    margin-top: 20px;
+  }
+  .navbar .container .lang .lang_opt {
+    max-height: 40px !important;
+    padding: 10px 20px;
+    -webkit-transition: .3s;
+    transition: .3s;
+    background-color: #e7e3e3;
+  }
+  .navbar .container .lang .active {
+    z-index: 1000;
+    width: 80px !important;
+    background-color: #d8d4d4;
+  }
 }
 /*# sourceMappingURL=style.css.map */

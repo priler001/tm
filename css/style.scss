@@ -23,17 +23,12 @@ h1,h2,h3,h4,h5{
     margin: 0 !important;
 }
 
-.form-control{
-    padding: 10px 20px;
-}
 
 a{
     text-decoration: none;
 }
 
-.text-center{
-    text-align: center;
-}
+
 
 .btn{
     border: none;
@@ -44,26 +39,153 @@ a{
 
 // HEADER
 #header{
-    .container{
         nav{
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            .navbar-logo{
+            .container{
+                text-align: center;
+                margin-top: 20px;
                 display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .navbar-logo{
+                    display: flex;
+                }
+                ul{
+                    display: flex;
+                    li{
+                        padding: 0px 15px;
+                        a{
+                            position: relative;
+                            color: #000;
+                            transition: .1s;
+                            display: block;
+                            padding: 10px 0px;
+                            transition: .5s;
+                        }
+                        a::before {
+                            content: '';
+                            bottom: 0;
+                            left: 0;
+                            position: absolute;
+                            width: 100%;
+                            height: 2px;
+                            background-color: #000;
+                            transition: 0.2s;
+                            transform: scaleX(0);
+                          }
+                          a:hover:before {
+                            transform: scaleX(1);
+                          }
+                      
+                    }
+
+                }
+                .btn{
+                    width: 20%;
+                    height: 20%;
+                    background-color: #fff;
+                    border: 3px solid black;
+                    color: black;
+                    transition: .3s;
+                    font-size: 15px;
+                    text-transform: uppercase;
+                    padding: 10px 15px;
+                    p{
+                        font-weight: 900 !important;
+                    }
+                }
+                .btn:hover{
+                    color: #fff;
+                    background-color: #000;
+                }
+                .lang{
+                    display: flex;
+                    flex-direction: row; 
+                    color: #000 !important;
+                    cursor: pointer;
+                    .lang_opt{
+                        max-height: 40px !important;
+                        padding: 10px 20px;
+                        transition: .3s;
+                        background-color: rgb(231, 227, 227);
+                    }
+                    .active{
+                        z-index: 1000;
+                        width: 80px !important;
+                        background-color: rgb(216, 212, 212);
+                    }
             }
-            ul{
-                display: flex;
+        }   
+        
+    }
+}
+
+@media(max-width: 1200px){
+    .container{
+        width: 600px;
+        margin: 0 auto;
+    }
+    .menu-burger__header {
+        position: relative; /* задаем относительное позиционирование */
+        width: 40px; /* определяем размеры блока */
+        height: 35px;
+        margin-left: 10px;
+    }
+    .menu-burger__header span, .menu-burger__header:after, .menu-burger__header:before{
+        height: 3px;
+        width: 100%;
+        position: absolute;
+        background: #000;
+        margin: 0 auto;
+        transition: .3s;
+    }
+    .menu-burger__header span{
+        top: 16px;
+    }
+    .menu-burger__header:after, .menu-burger__header:before{
+        content: '';
+    }
+    .menu-burger__header:after{
+        bottom: 5px;
+    }
+    .menu-burger__header:before{
+        top: 5px;
+    }
+    .menu-burger__header.open-menu span {
+        opacity:0; 
+        transition: 0.5s; 
+    }
+    .menu-burger__header.open-menu:before {
+        transform: rotate(38deg);
+        top: 16px;
+        transition: 0.4s;
+    }
+    .menu-burger__header.open-menu:after {
+        transform: rotate(-38deg);
+        bottom: 16px;
+        transition: 0.4s;
+    }
+    .navbar{
+        .container{
+            display: block !important;
+            .navbar-brand{
+                display: flex !important;
+                .menu-burger__header{
+                    margin-left: 71%;
+                }
+            }
+            .navbar-ul{
+                right: -100% !important;
+                transition: all 0.4s ease;
+                display: block !important;
                 li{
                     padding: 0px 15px;
                     a{
                         position: relative;
                         color: #000;
                         transition: .1s;
-                        display: block;
                         padding: 10px 0px;
                         transition: .5s;
+                        text-align: right;
                     }
                     a::before {
                         content: '';
@@ -79,18 +201,23 @@ a{
                       a:hover:before {
                         transform: scaleX(1);
                       }
-                
+                  
                 }
 
             }
+            .navbar-ul.open-menu{
+                right: 0 !important;
+            }
             .btn{
-                width: 20%;
+                width: 50% !important;
                 background-color: #fff;
                 border: 3px solid black;
                 color: black;
                 transition: .3s;
                 font-size: 15px;
                 text-transform: uppercase;
+                padding: 10px 15px;
+                margin-left: 46%;
                 p{
                     font-weight: 900 !important;
                 }
@@ -104,18 +231,21 @@ a{
                 flex-direction: row; 
                 color: #000 !important;
                 cursor: pointer;
+                margin-left: 75%;
+                margin-top: 20px;
                 .lang_opt{
                     max-height: 40px !important;
                     padding: 10px 20px;
                     transition: .3s;
                     background-color: rgb(231, 227, 227);
-    
                 }
                 .active{
+                    z-index: 1000;
+                    width: 80px !important;
                     background-color: rgb(216, 212, 212);
                 }
-            }
-            
         }
-    }
+    }   
+}
+
 }
